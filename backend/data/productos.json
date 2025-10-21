@@ -1,0 +1,58 @@
+[
+    {
+        "id": "1",
+        "codigo": "123456786",
+        "nombre": "Lim\u00f3n",
+        "categoria": "Verdura",
+        "precio": 55,
+        "stock": 6
+    },
+    {
+        "id": "2",
+        "codigo": "123456780",
+        "nombre": "Zapallo",
+        "categoria": "Verdura",
+        "precio": 50,
+        "stock": 30
+    },
+    {
+        "id": "3",
+        "codigo": "123456781",
+        "nombre": "Manzana",
+        "categoria": "Fruta",
+        "precio": 600,
+        "stock": 11
+    },
+    {
+        "id": "4",
+        "codigo": "123456782",
+        "nombre": "Kiwi",
+        "categoria": "Fruta",
+        "precio": 800,
+        "stock": 5
+    },
+    {
+        "id": "5",
+        "codigo": "123456783",
+        "nombre": "Sand\u00eda",
+        "categoria": "Fruta",
+        "precio": 800,
+        "stock": 5
+    },
+    {
+        "id": "6",
+        "codigo": "123456784",
+        "nombre": "Naranja",
+        "categoria": "Fruta",
+        "precio": 500,
+        "stock": 9
+    },
+    {
+        "id": "7",
+        "codigo": "123456785",
+        "nombre": "Mel\u00f3n",
+        "categoria": "Fruta",
+        "precio": 55,
+        "stock": 2
+    }
+]

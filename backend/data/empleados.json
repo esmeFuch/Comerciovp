@@ -1,0 +1,18 @@
+[
+    {
+        "id": "EMP001",
+        "nombre": "Melina",
+        "email": "sosafuchmelina@gmail.com",
+        "rol": "Programadora",
+        "sucursal": "Sucursal Centro",
+        "estado": "Activo"
+    },
+    {
+        "id": "EMP003",
+        "nombre": "melina",
+        "email": "melinaesmeraldasosafuch@gmail.com",
+        "rol": "Programadora",
+        "sucursal": "Sucursal Faro",
+        "estado": "Activo"
+    }
+]

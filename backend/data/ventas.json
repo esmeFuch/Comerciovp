@@ -1,0 +1,107 @@
+[
+    {
+        "producto": "Lim\u00f3n",
+        "cantidad": 50,
+        "precio": 55,
+        "metodo_pago": "tarjeta",
+        "fecha": "2025-10-20 17:37:37"
+    },
+    {
+        "producto": "Manzana",
+        "cantidad": 3,
+        "precio": 600,
+        "metodo_pago": "tarjeta",
+        "fecha": "2025-10-20 17:37:37"
+    },
+    {
+        "producto": "Naranja",
+        "cantidad": 70,
+        "precio": 500,
+        "metodo_pago": "tarjeta",
+        "fecha": "2025-10-20 17:37:37"
+    },
+    {
+        "producto": "Lim\u00f3n",
+        "cantidad": 1,
+        "precio": 55,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-10-20 17:46:27"
+    },
+    {
+        "producto": "Lim\u00f3n",
+        "cantidad": 2,
+        "precio": 55,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-10-20 17:47:00"
+    },
+    {
+        "producto": "Naranja",
+        "cantidad": 2,
+        "precio": 500,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-10-20 17:47:00"
+    },
+    {
+        "producto": "Manzana",
+        "cantidad": 18,
+        "precio": 600,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-10-20 17:47:49"
+    },
+    {
+        "producto": "Zapallo",
+        "cantidad": 18,
+        "precio": 44,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-10-20 17:47:49"
+    },
+    {
+        "producto": "Zapallo",
+        "cantidad": 88,
+        "precio": 44,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-10-20 17:48:28"
+    },
+    {
+        "producto": "Zapallo",
+        "cantidad": 70,
+        "precio": 44,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-10-20 17:49:16"
+    },
+    {
+        "producto": "Zapallo",
+        "cantidad": 2,
+        "precio": 44,
+        "metodo_pago": "tarjeta",
+        "fecha": "2025-10-20 17:52:59"
+    },
+    {
+        "producto": "Mel\u00f3n",
+        "cantidad": 51,
+        "precio": 55,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-10-20 20:04:59"
+    },
+    {
+        "producto": "Kiwi",
+        "cantidad": 10,
+        "precio": 800,
+        "metodo_pago": "tarjeta",
+        "fecha": "2025-10-20 20:05:53"
+    },
+    {
+        "producto": "Lim\u00f3n",
+        "cantidad": 25,
+        "precio": 55,
+        "metodo_pago": "tarjeta",
+        "fecha": "2025-10-20 20:05:53"
+    },
+    {
+        "producto": "Sand\u00eda",
+        "cantidad": 2,
+        "precio": 800,
+        "metodo_pago": "tarjeta",
+        "fecha": "2025-10-20 20:05:53"
+    }
+]
