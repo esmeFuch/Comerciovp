@@ -50,11 +50,18 @@ function agregarProductoTabla(producto) {
     tr.innerHTML = `
         <td>${producto.nombre}</td>
         <td>$${parseFloat(producto.precio).toFixed(2)}</td>
-        <td><input type="number" class="cantidad-producto" value="1"></td>
+        <td><input type="number" class="cantidad-producto" value="1" min="1"></td>
         <td class="subtotal">$${parseFloat(producto.precio).toFixed(2)}</td>
         <td><button class="btn btn-danger btn-sm btn-eliminar">Eliminar</button></td>
     `;
     tbody.appendChild(tr);
+
+    // Actualizar subtotal cuando cambia la cantidad
+    tr.querySelector('.cantidad-producto').addEventListener('input', () => {
+        if(tr.querySelector('.cantidad-producto').value < 1) tr.querySelector('.cantidad-producto').value = 1;
+        actualizarSubtotal(tr);
+        actualizarTotal();
+    });
 
     // Evento eliminar
     tr.querySelector('.btn-eliminar').addEventListener('click', function(){
@@ -66,6 +73,8 @@ function agregarProductoTabla(producto) {
             actualizarTotal();
         }
     });
+
+    actualizarTotal();
 }
 
 function actualizarSubtotal(tr){
@@ -86,6 +95,7 @@ function actualizarTotal(){
     document.getElementById('total-venta').textContent = `$${total.toFixed(2)}`;
 }
 
+// Procesar venta (igual que antes)
 async function procesarVenta() {
     const tbody = document.getElementById('productos-venta');
     const productos = [];
