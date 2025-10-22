@@ -1,6 +1,6 @@
 <?php
 require_once 'config.php';
-require_once 'urls.php';
+require_once 'utils/urls.php';
 ?>
 
 <!-- Sidebar -->
