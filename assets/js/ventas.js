@@ -10,34 +10,43 @@ async function cargarProductosDisponibles() {
     }
 }
 
-// Agregar producto por código de barras
-document.getElementById('codigo-barras').addEventListener('keypress', function(e){
-    if(e.key === 'Enter'){
+// Agregar producto por código de barras usando Enter
+document.getElementById('codigo-barras').addEventListener('keypress', async function(e) {
+    if (e.key === 'Enter') {
         e.preventDefault();
         const codigo = this.value.trim();
-        if(!codigo) return;
+        if (!codigo) return;
 
-        const producto = productosDisponibles.find(p => p.codigo === codigo);
-        if(!producto){
-            alert('Producto no encontrado');
+        try {
+            const response = await fetch(`../backend/controllers/productos/getProductoByCodigo.php?codigo=${codigo}`);
+            const data = await response.json();
+
+            if (!data.success || !data.producto) {
+                alert('Producto no encontrado');
+                this.value = '';
+                return;
+            }
+
+            agregarProductoTabla(data.producto);
             this.value = '';
-            return;
+        } catch (error) {
+            console.error(error);
+            alert('Error al buscar el producto');
         }
-
-        agregarProductoTabla(producto);
-        this.value = '';
     }
 });
 
 function agregarProductoTabla(producto) {
     const tbody = document.getElementById('productos-venta');
 
-    if(tbody.querySelectorAll('tr').length === 1 && tbody.querySelector('td[colspan="5"]')){
+    // Si estaba la fila "No hay productos agregados", la eliminamos
+    if (tbody.querySelectorAll('tr').length === 1 && tbody.querySelector('td[colspan="5"]')) {
         tbody.innerHTML = '';
     }
 
+    // Revisar si ya está agregado
     const filaExistente = Array.from(tbody.querySelectorAll('tr')).find(tr => tr.dataset.codigo === producto.codigo);
-    if(filaExistente){
+    if (filaExistente) {
         const cantidadInput = filaExistente.querySelector('.cantidad-producto');
         cantidadInput.value = parseInt(cantidadInput.value) + 1;
         actualizarSubtotal(filaExistente);
@@ -56,18 +65,20 @@ function agregarProductoTabla(producto) {
     `;
     tbody.appendChild(tr);
 
-    // Actualizar subtotal cuando cambia la cantidad
+    // Evento cantidad
     tr.querySelector('.cantidad-producto').addEventListener('input', () => {
-        if(tr.querySelector('.cantidad-producto').value < 1) tr.querySelector('.cantidad-producto').value = 1;
+        let val = parseInt(tr.querySelector('.cantidad-producto').value);
+        if (isNaN(val) || val < 1) val = 1;
+        tr.querySelector('.cantidad-producto').value = val;
         actualizarSubtotal(tr);
         actualizarTotal();
     });
 
     // Evento eliminar
-    tr.querySelector('.btn-eliminar').addEventListener('click', function(){
-        if(confirm(`¿Deseas eliminar "${tr.children[0].textContent}" de la venta?`)){
+    tr.querySelector('.btn-eliminar').addEventListener('click', function() {
+        if (confirm(`¿Deseas eliminar "${tr.children[0].textContent}" de la venta?`)) {
             tr.remove();
-            if(tbody.querySelectorAll('tr').length === 0){
+            if (tbody.querySelectorAll('tr').length === 0) {
                 tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;">No hay productos agregados</td></tr>`;
             }
             actualizarTotal();
@@ -77,25 +88,23 @@ function agregarProductoTabla(producto) {
     actualizarTotal();
 }
 
-function actualizarSubtotal(tr){
-    const precio = parseFloat(tr.children[1].textContent.replace('$',''));
+function actualizarSubtotal(tr) {
+    const precio = parseFloat(tr.children[1].textContent.replace('$', ''));
     const cantidad = parseInt(tr.querySelector('.cantidad-producto').value);
     tr.querySelector('.subtotal').textContent = `$${(precio * cantidad).toFixed(2)}`;
 }
 
-function actualizarTotal(){
+function actualizarTotal() {
     const tbody = document.getElementById('productos-venta');
     let total = 0;
-    tbody.querySelectorAll('tr').forEach(tr=>{
+    tbody.querySelectorAll('tr').forEach(tr => {
         const subtotalEl = tr.querySelector('.subtotal');
-        if(subtotalEl){
-            total += parseFloat(subtotalEl.textContent.replace('$','')) || 0;
-        }
+        if (subtotalEl) total += parseFloat(subtotalEl.textContent.replace('$', '')) || 0;
     });
     document.getElementById('total-venta').textContent = `$${total.toFixed(2)}`;
 }
 
-// Procesar venta (igual que antes)
+// Procesar venta
 async function procesarVenta() {
     const tbody = document.getElementById('productos-venta');
     const productos = [];
@@ -105,9 +114,12 @@ async function procesarVenta() {
     tbody.querySelectorAll('tr').forEach(tr => {
         const cantidadInput = tr.querySelector('.cantidad-producto');
         if (!cantidadInput) return;
+
+        const codigo = tr.dataset.codigo;
         const nombre = tr.children[0].textContent.trim();
-        const precio = parseFloat(tr.children[1].textContent.replace('$',''));
+        const precio = parseFloat(tr.children[1].textContent.replace('$', ''));
         let cantidad = parseInt(cantidadInput.value);
+
         if (isNaN(cantidad) || cantidad < 0) cantidad = 0;
 
         if (cantidad === 0) {
@@ -115,17 +127,17 @@ async function procesarVenta() {
             productosCero.push(nombre);
         }
 
-        if(nombre && !isNaN(precio) && cantidad > 0){
-            productos.push({nombre, precio, cantidad});
+        if (nombre && !isNaN(precio) && cantidad > 0) {
+            productos.push({ codigo, nombre, precio, cantidad });
         }
     });
 
-    if (tbody.querySelectorAll('tr').length === 0 || productos.length === 0){
+    if (tbody.querySelectorAll('tr').length === 0 || productos.length === 0) {
         alert('No hay productos para procesar la venta');
         return;
     }
 
-    if (tieneCero){
+    if (tieneCero) {
         alert('Revisa las cantidades de los productos: ' + productosCero.join(', ') + '. No pueden estar en 0.');
         return;
     }
@@ -133,7 +145,7 @@ async function procesarVenta() {
     try {
         const response = await fetch('../backend/controllers/ventas/postVenta.php', {
             method: 'POST',
-            headers: {'Content-Type':'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 productos,
                 metodo_pago: document.getElementById('metodo-pago').value
@@ -141,7 +153,7 @@ async function procesarVenta() {
         });
 
         const result = await response.json();
-        if(result.success){
+        if (result.success) {
             alert(result.message);
             tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;">No hay productos agregados</td></tr>`;
             actualizarTotal();
