@@ -21,12 +21,28 @@
     margin-bottom: 10px;
 }
 
-.modal input {
+.modal input,
+.modal select {
     width: 100%;
     margin-bottom: 10px;
-    padding: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.modal input:focus,
+.modal select:focus {
+    border-color: #666;
+    box-shadow: none;
 }
 
 .modal button {
     margin-top: 10px;
+}
+
+#modalProducto select option[disabled] {
+    color: #999;
 }

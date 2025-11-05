@@ -39,7 +39,6 @@ $current_page = "productos";
                     </tr>
                 </thead>
                 <tbody id="productos-body">
-                    <!-- Productos se cargan dinámicamente -->
                 </tbody>
             </table>
         </div>
@@ -51,13 +50,18 @@ $current_page = "productos";
         <div class="modal-header" id="modalTitle">Agregar Producto</div>
         <input type="text" id="codigo" placeholder="Código">
         <input type="text" id="nombre" placeholder="Nombre del producto">
-        <input type="text" id="categoria" placeholder="Categoría">
+        
+        <select id="categoria" class="form-control">
+            <option value="" disabled selected hidden>Selecciona categoría</option>
+        </select>
+
         <input type="number" id="precio" placeholder="Precio" step="0.01">
         <input type="number" id="stock" placeholder="Stock inicial" min="0">
         <button id="guardarProducto" class="btn btn-primary">Guardar</button>
         <button id="cerrarModal" class="btn btn-warning">Cancelar</button>
     </div>
 </div>
+
 
 <script src="../assets/js/main.js"></script>
 <script src="../assets/js/productos.js"></script>

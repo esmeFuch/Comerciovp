@@ -3,9 +3,9 @@
         "id": "1",
         "codigo": "123456786",
         "nombre": "Lim\u00f3n",
-        "categoria": "Verdura",
+        "categoria": "Belleza",
         "precio": 55,
-        "stock": 6
+        "stock": 557
     },
     {
         "id": "2",
@@ -13,7 +13,7 @@
         "nombre": "Zapallo",
         "categoria": "Verdura",
         "precio": 50,
-        "stock": 30
+        "stock": 294
     },
     {
         "id": "3",
@@ -21,15 +21,7 @@
         "nombre": "Manzana",
         "categoria": "Fruta",
         "precio": 600,
-        "stock": 11
-    },
-    {
-        "id": "4",
-        "codigo": "123456782",
-        "nombre": "Kiwi",
-        "categoria": "Fruta",
-        "precio": 800,
-        "stock": 5
+        "stock": 17856
     },
     {
         "id": "5",
@@ -37,7 +29,7 @@
         "nombre": "Sand\u00eda",
         "categoria": "Fruta",
         "precio": 800,
-        "stock": 5
+        "stock": 486
     },
     {
         "id": "6",
@@ -45,7 +37,7 @@
         "nombre": "Naranja",
         "categoria": "Fruta",
         "precio": 500,
-        "stock": 9
+        "stock": 584
     },
     {
         "id": "7",
@@ -53,6 +45,30 @@
         "nombre": "Mel\u00f3n",
         "categoria": "Fruta",
         "precio": 55,
+        "stock": 157
+    },
+    {
+        "id": "8",
+        "codigo": "123456782",
+        "nombre": "Papa",
+        "categoria": "Verdura",
+        "precio": 49.99,
+        "stock": 56
+    },
+    {
+        "id": "9",
+        "codigo": "123456787",
+        "nombre": "Zapallo",
+        "categoria": "Verdura",
+        "precio": 0.04,
         "stock": 2
+    },
+    {
+        "id": "10",
+        "codigo": "123456788",
+        "nombre": "Zapallo",
+        "categoria": "Belleza",
+        "precio": 50,
+        "stock": 1
     }
 ]
