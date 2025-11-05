@@ -1,0 +1,38 @@
+[
+    {
+        "id": "TRF-2023-001",
+        "producto": "Aceite de Oliva Extra Virgen 500ml",
+        "desde": "Sucursal Centro",
+        "hacia": "Sucursal Norte",
+        "cantidad": 24,
+        "fecha": "15\/11\/2023",
+        "estado": "Completada"
+    },
+    {
+        "id": "TRF-2023-002",
+        "producto": "Arroz Integral 1kg",
+        "desde": "Sucursal Norte",
+        "hacia": "Sucursal Sur",
+        "cantidad": 50,
+        "fecha": "14\/11\/2023",
+        "estado": "Rechazada"
+    },
+    {
+        "id": "TRF-2023-003",
+        "producto": "Leche Deslactosada 1L",
+        "desde": "Sucursal Sur",
+        "hacia": "Sucursal Este",
+        "cantidad": 30,
+        "fecha": "14\/11\/2023",
+        "estado": "Completada"
+    },
+    {
+        "id": "TRF-20251103165227",
+        "producto": "Naranja Jugo",
+        "desde": "Sucursal Sur",
+        "hacia": "Sucursal Norte",
+        "cantidad": 50,
+        "fecha": "2025-11-10",
+        "estado": "Completada"
+    }
+]
