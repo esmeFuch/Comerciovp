@@ -10,145 +10,68 @@ $current_page = "multisucursal";
     <title>Multisucursal - CommercePro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/multisucursal.css">
 </head>
 <body>
-    <div class="container">
-        <?php include '../sidebar.php'; ?>
-        
-        <div class="main-content">
-            <?php include '../header.php'; ?>
-            
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h3>Gestión Multisucursal</h3>
-                <button class="btn btn-primary">
-                    <i class="fas fa-store-plus"></i> Agregar Sucursal
-                </button>
-            </div>
+<div class="container">
+    <?php include '../sidebar.php'; ?>
+    <div class="main-content">
+        <?php include '../header.php'; ?>
 
-            <div class="dashboard-cards">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Total Sucursales</div>
-                        <div class="card-icon" style="background-color: var(--primary);">
-                            <i class="fas fa-store"></i>
-                        </div>
-                    </div>
-                    <div class="card-value">5</div>
-                    <div class="card-footer">
-                        <i class="fas fa-info-circle"></i> Todas activas
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Sucursal con Más Ventas</div>
-                        <div class="card-icon" style="background-color: var(--success);">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                    </div>
-                    <div class="card-value">Sucursal Centro</div>
-                    <div class="card-footer positive">
-                        <i class="fas fa-arrow-up"></i> $12,458 hoy
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <h3>Gestión Multisucursal</h3>
+            <button id="btnAgregarSucursal" class="btn btn-primary">
+                <i class="fas fa-store-plus"></i> Agregar Sucursal
+            </button>
+        </div>
+
+        <div class="dashboard-cards">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Total Sucursales</div>
+                    <div class="card-icon" style="background-color: var(--primary);">
+                        <i class="fas fa-store"></i>
                     </div>
                 </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Transferencias Pendientes</div>
-                        <div class="card-icon" style="background-color: var(--warning);">
-                            <i class="fas fa-exchange-alt"></i>
-                        </div>
-                    </div>
-                    <div class="card-value">3</div>
-                    <div class="card-footer negative">
-                        <i class="fas fa-exclamation-circle"></i> Requieren atención
-                    </div>
+                <div class="card-value" id="totalSucursales">0</div>
+                <div class="card-footer">
+                    <i class="fas fa-info-circle"></i> Todas activas
                 </div>
             </div>
             
-            <div class="modules-grid">
-                <div class="module-card">
-                    <div class="module-icon">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <div class="module-title">Sucursal Centro</div>
-                    <div class="module-description">
-                        Av. Principal #123, Zona Centro. Tel: 555-0101. Ventas hoy: $12,458
-                    </div>
-                    <div style="margin-top: 15px;">
-                        <span class="positive" style="font-weight: bold;">● En línea</span>
-                        <button class="btn" style="padding: 5px 10px; background: var(--info); color: white; float: right;">
-                            <i class="fas fa-cog"></i>
-                        </button>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Sucursal con Más Ventas</div>
+                    <div class="card-icon" style="background-color: var(--success);">
+                        <i class="fas fa-trophy"></i>
                     </div>
                 </div>
-                
-                <div class="module-card">
-                    <div class="module-icon">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <div class="module-title">Sucursal Norte</div>
-                    <div class="module-description">
-                        Calle Norte #456, Sector Norte. Tel: 555-0102. Ventas hoy: $8,742
-                    </div>
-                    <div style="margin-top: 15px;">
-                        <span class="positive" style="font-weight: bold;">● En línea</span>
-                        <button class="btn" style="padding: 5px 10px; background: var(--info); color: white; float: right;">
-                            <i class="fas fa-cog"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="module-card">
-                    <div class="module-icon">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <div class="module-title">Sucursal Sur</div>
-                    <div class="module-description">
-                        Av. Sur #789, Col. Sur. Tel: 555-0103. Ventas hoy: $9,125
-                    </div>
-                    <div style="margin-top: 15px;">
-                        <span class="positive" style="font-weight: bold;">● En línea</span>
-                        <button class="btn" style="padding: 5px 10px; background: var(--info); color: white; float: right;">
-                            <i class="fas fa-cog"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="module-card">
-                    <div class="module-icon">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <div class="module-title">Sucursal Este</div>
-                    <div class="module-description">
-                        Calle Este #321, Zona Este. Tel: 555-0104. Ventas hoy: $7,893
-                    </div>
-                    <div style="margin-top: 15px;">
-                        <span class="positive" style="font-weight: bold;">● En línea</span>
-                        <button class="btn" style="padding: 5px 10px; background: var(--info); color: white; float: right;">
-                            <i class="fas fa-cog"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="module-card">
-                    <div class="module-icon">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <div class="module-title">Sucursal Oeste</div>
-                    <div class="module-description">
-                        Av. Oeste #654, Sector Oeste. Tel: 555-0105. Ventas hoy: $6,542
-                    </div>
-                    <div style="margin-top: 15px;">
-                        <span class="positive" style="font-weight: bold;">● En línea</span>
-                        <button class="btn" style="padding: 5px 10px; background: var(--info); color: white; float: right;">
-                            <i class="fas fa-cog"></i>
-                        </button>
-                    </div>
+                <div class="card-value" id="sucursalMasVentas">-</div>
+                <div class="card-footer positive" id="ventasMasSucursal">
+                    <i class="fas fa-arrow-up"></i> $0 hoy
                 </div>
             </div>
 
-            <div class="table-container">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Transferencias Pendientes</div>
+                    <div class="card-icon" style="background-color: var(--warning);">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                </div>
+                <div class="card-value" id="transferenciasPendientes">0</div>
+                <div class="card-footer negative">
+                    <i class="fas fa-exclamation-circle"></i> Requieren atención
+                </div>
+            </div>
+        </div>
+
+        <div class="modules-grid" id="modulesGrid">
+            <!-- Aquí se van a cargar las sucursales desde JS -->
+        </div>
+
+           <!-- Tabla de Transferencias -->
+            <div class="table-container" style="margin-top: 30px;">
                 <h3>Transferencias Entre Sucursales</h3>
                 <table class="data-table">
                     <thead>
@@ -163,61 +86,52 @@ $current_page = "multisucursal";
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>TRF-2023-001</td>
-                            <td>Aceite de Oliva Extra Virgen 500ml</td>
-                            <td>Sucursal Centro</td>
-                            <td>Sucursal Norte</td>
-                            <td>24 unidades</td>
-                            <td>15/11/2023</td>
-                            <td><span class="positive">Completada</span></td>
-                            <td>
-                                <button class="btn" style="padding: 5px 10px; background: var(--info); color: white;">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>TRF-2023-002</td>
-                            <td>Arroz Integral 1kg</td>
-                            <td>Sucursal Norte</td>
-                            <td>Sucursal Sur</td>
-                            <td>50 unidades</td>
-                            <td>14/11/2023</td>
-                            <td><span class="negative">Pendiente</span></td>
-                            <td>
-                                <button class="btn" style="padding: 5px 10px; background: var(--success); color: white;">
-                                    <i class="fas fa-check"></i>
-                                </button>
-                                <button class="btn" style="padding: 5px 10px; background: var(--warning); color: white;">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>TRF-2023-003</td>
-                            <td>Leche Deslactosada 1L</td>
-                            <td>Sucursal Sur</td>
-                            <td>Sucursal Este</td>
-                            <td>30 unidades</td>
-                            <td>14/11/2023</td>
-                            <td><span class="negative">Pendiente</span></td>
-                            <td>
-                                <button class="btn" style="padding: 5px 10px; background: var(--success); color: white;">
-                                    <i class="fas fa-check"></i>
-                                </button>
-                                <button class="btn" style="padding: 5px 10px; background: var(--warning); color: white;">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </td>
-                        </tr>
+                    <tbody id="transferenciasTableBody">
+                        <!-- Se carga desde JS -->
                     </tbody>
                 </table>
             </div>
+
         </div>
     </div>
+    </div>
+</div>
 
-    <script src="../assets/js/main.js"></script>
+
+
+<!-- Modal Agregar/Editar Sucursal -->
+<div id="modalSucursal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3 id="modalTitle">Agregar Sucursal</h3>
+        <form id="formSucursal">
+            <input type="hidden" id="sucursalId">
+            <label>Nombre de la Sucursal</label>
+            <input type="text" id="nombreSucursal" required>
+
+            <label>Dirección</label>
+            <input type="text" id="direccionSucursal" required>
+
+            <label>Teléfono</label>
+            <input type="text" id="telefonoSucursal" required>
+
+            <label>Online</label>
+            <select id="onlineSucursal">
+                <option value="1">Sí</option>
+                <option value="0">No</option>
+            </select>
+
+            <label>Ventas Hoy</label>
+            <input type="number" id="ventasHoySucursal" required>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/multisucursal.js"></script>
+<!-- <script src="../assets/js/transferencias.js"></script> -->
+
 </body>
 </html>
