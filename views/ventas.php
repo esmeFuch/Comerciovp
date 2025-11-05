@@ -70,6 +70,7 @@ $current_page = "ventas";
     </div>
 </div>
 
+<!-- Scripts -->
 <script src="../assets/js/main.js"></script>
 <script src="../assets/js/ventas.js"></script>
 </body>

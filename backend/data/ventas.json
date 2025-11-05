@@ -1,107 +1,234 @@
 [
     {
-        "producto": "Lim\u00f3n",
-        "cantidad": 50,
-        "precio": 55,
-        "metodo_pago": "tarjeta",
-        "fecha": "2025-10-20 17:37:37"
+        "codigo": "123456781",
+        "producto": "Manzana",
+        "cantidad": 15,
+        "precio": 600,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-09-31 15:29:59"
     },
     {
+        "codigo": "123456783",
+        "producto": "Sand\u00eda",
+        "cantidad": 5,
+        "precio": 800,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-09-31 15:30:51"
+    },
+    {
+        "codigo": "123456780",
+        "producto": "Zapallo",
+        "cantidad": 3,
+        "precio": 50,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-09-30 15:30:51"
+    },
+    {
+        "codigo": "123456781",
         "producto": "Manzana",
         "cantidad": 3,
         "precio": 600,
-        "metodo_pago": "tarjeta",
-        "fecha": "2025-10-20 17:37:37"
+        "metodo_pago": "efectivo",
+        "fecha": "2025-09-30 15:30:51"
     },
     {
+        "codigo": "123456782",
+        "producto": "Papa",
+        "cantidad": 17,
+        "precio": 49.99,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-09-30 15:37:56"
+    },
+    {
+        "codigo": "123456785",
+        "producto": "Mel\u00f3n",
+        "cantidad": 3,
+        "precio": 55,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-09-30 15:37:56"
+    },
+    {
+        "codigo": "123456782",
+        "producto": "Papa",
+        "cantidad": 5,
+        "precio": 49.99,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-09-30 15:38:45"
+    },
+    {
+        "codigo": "123456783",
+        "producto": "Sand\u00eda",
+        "cantidad": 2,
+        "precio": 800,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-09-30 15:38:45"
+    },
+    {
+        "codigo": "123456780",
+        "producto": "Zapallo",
+        "cantidad": 3,
+        "precio": 50,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-10-30 15:38:45"
+    },
+    {
+        "codigo": "123456781",
+        "producto": "Manzana",
+        "cantidad": 6,
+        "precio": 600,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-11-30 15:38:45"
+    },
+    {
+        "codigo": "123456781",
+        "producto": "Manzana",
+        "cantidad": 4,
+        "precio": 600,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-11-30 15:39:06"
+    },
+    {
+        "codigo": "123456781",
+        "producto": "Manzana",
+        "cantidad": 3,
+        "precio": 600,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-11-30 16:00:30"
+    },
+    {
+        "codigo": "123456783",
+        "producto": "Sand\u00eda",
+        "cantidad": 6,
+        "precio": 800,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-11-30 16:00:30"
+    },
+    {
+        "codigo": "123456782",
+        "producto": "Papa",
+        "cantidad": 3,
+        "precio": 49.99,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-11-30 16:00:30"
+    },
+    {
+        "codigo": "123456785",
+        "producto": "Mel\u00f3n",
+        "cantidad": 1,
+        "precio": 55,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-11-30 16:00:30"
+    },
+    {
+        "codigo": "123456784",
         "producto": "Naranja",
-        "cantidad": 70,
+        "cantidad": 10,
         "precio": 500,
-        "metodo_pago": "tarjeta",
-        "fecha": "2025-10-20 17:37:37"
+        "metodo_pago": "efectivo",
+        "fecha": "2025-10-30 16:00:30"
     },
     {
+        "codigo": "123456781",
+        "producto": "Manzana",
+        "cantidad": 5,
+        "precio": 600,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-10-30 14:50:01"
+    },
+    {
+        "codigo": "123456781",
+        "producto": "Manzana",
+        "cantidad": 2,
+        "precio": 600,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-10-30 14:51:26"
+    },
+    {
+        "codigo": "123456783",
+        "producto": "Sand\u00eda",
+        "cantidad": 1,
+        "precio": 800,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-10-30 14:51:26"
+    },
+    {
+        "codigo": "123456787",
+        "producto": "Zapallo",
+        "cantidad": 1,
+        "precio": 0.04,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-10-30 14:51:26"
+    },
+    {
+        "codigo": "123456786",
         "producto": "Lim\u00f3n",
         "cantidad": 1,
         "precio": 55,
         "metodo_pago": "efectivo",
-        "fecha": "2025-10-20 17:46:27"
+        "fecha": "2025-10-30 14:51:26"
     },
     {
-        "producto": "Lim\u00f3n",
-        "cantidad": 2,
+        "codigo": "123456785",
+        "producto": "Mel\u00f3n",
+        "cantidad": 1,
         "precio": 55,
         "metodo_pago": "efectivo",
-        "fecha": "2025-10-20 17:47:00"
+        "fecha": "2025-10-30 14:51:26"
     },
     {
+        "codigo": "123456784",
         "producto": "Naranja",
-        "cantidad": 2,
+        "cantidad": 1,
         "precio": 500,
         "metodo_pago": "efectivo",
-        "fecha": "2025-10-20 17:47:00"
+        "fecha": "2025-09-30 14:51:26"
     },
     {
+        "codigo": "123456786",
+        "producto": "Lim\u00f3n",
+        "cantidad": 36,
+        "precio": 55,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-09-30 15:20:36"
+    },
+    {
+        "codigo": "123456784",
+        "producto": "Naranja",
+        "cantidad": 100,
+        "precio": 500,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-10-30 15:23:32"
+    },
+    {
+        "codigo": "123456781",
         "producto": "Manzana",
-        "cantidad": 18,
+        "cantidad": 104,
         "precio": 600,
         "metodo_pago": "efectivo",
-        "fecha": "2025-10-20 17:47:49"
+        "fecha": "2025-10-30 15:29:49"
     },
     {
-        "producto": "Zapallo",
-        "cantidad": 18,
-        "precio": 44,
+        "codigo": "123456784",
+        "producto": "Naranja",
+        "cantidad": 205,
+        "precio": 500,
         "metodo_pago": "efectivo",
-        "fecha": "2025-10-20 17:47:49"
+        "fecha": "2025-10-31 15:29:49"
     },
     {
-        "producto": "Zapallo",
-        "cantidad": 88,
-        "precio": 44,
-        "metodo_pago": "efectivo",
-        "fecha": "2025-10-20 17:48:28"
-    },
-    {
-        "producto": "Zapallo",
-        "cantidad": 70,
-        "precio": 44,
-        "metodo_pago": "efectivo",
-        "fecha": "2025-10-20 17:49:16"
-    },
-    {
-        "producto": "Zapallo",
-        "cantidad": 2,
-        "precio": 44,
-        "metodo_pago": "tarjeta",
-        "fecha": "2025-10-20 17:52:59"
-    },
-    {
+        "codigo": "123456785",
         "producto": "Mel\u00f3n",
-        "cantidad": 51,
+        "cantidad": 38,
         "precio": 55,
         "metodo_pago": "efectivo",
-        "fecha": "2025-10-20 20:04:59"
+        "fecha": "2025-10-31 15:39:47"
     },
     {
-        "producto": "Kiwi",
-        "cantidad": 10,
-        "precio": 800,
-        "metodo_pago": "tarjeta",
-        "fecha": "2025-10-20 20:05:53"
-    },
-    {
-        "producto": "Lim\u00f3n",
-        "cantidad": 25,
-        "precio": 55,
-        "metodo_pago": "tarjeta",
-        "fecha": "2025-10-20 20:05:53"
-    },
-    {
-        "producto": "Sand\u00eda",
-        "cantidad": 2,
-        "precio": 800,
-        "metodo_pago": "tarjeta",
-        "fecha": "2025-10-20 20:05:53"
+        "codigo": "123456782",
+        "producto": "Papa",
+        "cantidad": 1,
+        "precio": 49.99,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-11-03 15:19:53"
     }
 ]

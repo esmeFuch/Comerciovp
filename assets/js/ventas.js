@@ -36,6 +36,7 @@ document.getElementById('codigo-barras').addEventListener('keypress', async func
     }
 });
 
+// Agregar producto a la tabla
 function agregarProductoTabla(producto) {
     const tbody = document.getElementById('productos-venta');
 
@@ -61,7 +62,7 @@ function agregarProductoTabla(producto) {
         <td>$${parseFloat(producto.precio).toFixed(2)}</td>
         <td><input type="number" class="cantidad-producto" value="1" min="1"></td>
         <td class="subtotal">$${parseFloat(producto.precio).toFixed(2)}</td>
-        <td><button class="btn btn-danger btn-sm btn-eliminar">Eliminar</button></td>
+        <td><button type="button" class="btn btn-danger btn-sm btn-eliminar">Eliminar</button></td>
     `;
     tbody.appendChild(tr);
 
@@ -74,26 +75,44 @@ function agregarProductoTabla(producto) {
         actualizarTotal();
     });
 
-    // Evento eliminar
-    tr.querySelector('.btn-eliminar').addEventListener('click', function() {
-        if (confirm(`¿Deseas eliminar "${tr.children[0].textContent}" de la venta?`)) {
-            tr.remove();
-            if (tbody.querySelectorAll('tr').length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;">No hay productos agregados</td></tr>`;
-            }
-            actualizarTotal();
-        }
-    });
-
     actualizarTotal();
 }
 
+// Delegación para eliminar productos de la venta
+document.getElementById('productos-venta').addEventListener('click', function(e) {
+    if (e.target.classList.contains('btn-eliminar')) {
+        const tr = e.target.closest('tr');
+        const codigo = tr.dataset.codigo;
+
+        if (!confirm(`¿Deseas eliminar "${tr.children[0].textContent}" de la venta?`)) return;
+
+        // Llamada al backend para eliminar
+        fetch(`../backend/controllers/ventas/deleteVenta.php?codigo=${codigo}`)
+            .then(res => res.json())
+            .then(data => {
+                if(data.success){
+                    tr.remove();
+                    const tbody = document.getElementById('productos-venta');
+                    if (tbody.querySelectorAll('tr').length === 0) {
+                        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;">No hay productos agregados</td></tr>`;
+                    }
+                    actualizarTotal();
+                } else {
+                    alert(data.error || 'No se pudo eliminar el producto');
+                }
+            })
+            .catch(err => console.error(err));
+    }
+});
+
+// Actualizar subtotal de una fila
 function actualizarSubtotal(tr) {
     const precio = parseFloat(tr.children[1].textContent.replace('$', ''));
     const cantidad = parseInt(tr.querySelector('.cantidad-producto').value);
     tr.querySelector('.subtotal').textContent = `$${(precio * cantidad).toFixed(2)}`;
 }
 
+// Actualizar total de la venta
 function actualizarTotal() {
     const tbody = document.getElementById('productos-venta');
     let total = 0;
