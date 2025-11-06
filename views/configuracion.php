@@ -141,13 +141,13 @@ $current_page = "configuracion";
                     
                     <div class="form-group">
                         <label class="form-label" for="categorias">Categorías de Productos</label>
-                        <textarea id="categorias" class="form-control" rows="4" placeholder="Ingrese cada categoría en una línea">Abarrotes
-Lácteos
-Limpieza
-Higiene Personal
-Bebidas</textarea>
+                        <textarea id="categorias" class="form-control" rows="4" placeholder="Ingrese cada categoría en una línea"></textarea>
                         <small style="color: var(--gray);">Una categoría por línea</small>
                     </div>
+                    <button type="button" class="btn btn-success" id="guardar-categorias">
+                        <i class="fas fa-save"></i> Guardar Categorías
+                    </button>
+
                     
                     <div class="form-group">
                         <label class="form-label">
@@ -225,6 +225,37 @@ Bebidas</textarea>
 
     <script src="../assets/js/main.js"></script>
     <script>
+
+        // Cargar categorías al abrir la sección
+async function cargarCategorias() {
+    try {
+        const res = await fetch('../backend/controllers/configuracion/getCategorias.php');
+        const categorias = await res.json();
+        document.getElementById('categorias').value = categorias.join('\n');
+    } catch (e) { console.error(e); }
+}
+
+// Guardar categorías
+document.getElementById('guardar-categorias').addEventListener('click', async () => {
+    const text = document.getElementById('categorias').value.trim();
+    const categorias = text.split('\n').map(c => c.trim()).filter(c => c !== '');
+    try {
+        const res = await fetch('../backend/controllers/configuracion/saveCategorias.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ categorias })
+        });
+        const result = await res.json();
+        if (result.success) alert('Categorías guardadas correctamente');
+        else alert(result.error || 'Error al guardar categorías');
+    } catch (e) { console.error(e); alert('Error al guardar categorías'); }
+});
+
+// Llamar al cargar la sección de inventario
+if (document.getElementById('inventario-section').style.display !== 'none') {
+    cargarCategorias();
+}
+
         function showSection(section) {
             // Ocultar todas las secciones primero
             hideAllSections();
