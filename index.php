@@ -27,9 +27,9 @@ $current_page = "dashboard";
                             <i class="fas fa-shopping-cart"></i>
                         </div>
                     </div>
-                    <div class="card-value">$12,458</div>
-                    <div class="card-footer positive">
-                        <i class="fas fa-arrow-up"></i> 12% respecto a ayer
+                    <div class="card-value" id="ventasHoy">$0</div>
+                    <div class="card-footer" id="ventasHoyPorc">
+                        <i class="fas fa-arrow-up"></i> 0% respecto a ayer
                     </div>
                 </div>
                 
@@ -40,9 +40,9 @@ $current_page = "dashboard";
                             <i class="fas fa-box"></i>
                         </div>
                     </div>
-                    <div class="card-value">342</div>
-                    <div class="card-footer positive">
-                        <i class="fas fa-arrow-up"></i> 8% respecto a ayer
+                    <div class="card-value" id="productosVendidos">0</div>
+                    <div class="card-footer" id="productosVendidosPorc">
+                        <i class="fas fa-arrow-up"></i> 0% respecto a ayer
                     </div>
                 </div>
                 
@@ -53,9 +53,9 @@ $current_page = "dashboard";
                             <i class="fas fa-users"></i>
                         </div>
                     </div>
-                    <div class="card-value">89</div>
-                    <div class="card-footer negative">
-                        <i class="fas fa-arrow-down"></i> 3% respecto a ayer
+                    <div class="card-value" id="clientesAtendidos">0</div>
+                    <div class="card-footer" id="clientesAtendidosPorc">
+                        <i class="fas fa-arrow-up"></i> 0% respecto a ayer
                     </div>
                 </div>
                 
@@ -66,9 +66,9 @@ $current_page = "dashboard";
                             <i class="fas fa-receipt"></i>
                         </div>
                     </div>
-                    <div class="card-value">$139.98</div>
-                    <div class="card-footer positive">
-                        <i class="fas fa-arrow-up"></i> 5% respecto a ayer
+                    <div class="card-value" id="ticketPromedio">$0</div>
+                    <div class="card-footer" id="ticketPromedioPorc">
+                        <i class="fas fa-arrow-up"></i> 0% respecto a ayer
                     </div>
                 </div>
             </div>
@@ -187,6 +187,8 @@ $current_page = "dashboard";
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/dashboard.js"></script>
 </body>
 </html>
