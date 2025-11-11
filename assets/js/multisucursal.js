@@ -37,7 +37,7 @@ async function cargarSucursales() {
                     ${s.direccion}. Tel: ${s.telefono}. Ventas hoy: $${s.ventasHoy}
                 </div>
                 <div style="margin-top:15px; display: flex; justify-content: space-between; align-items: center;">
-                    <span class="${s.online?"positive":"negative"}" style="font-weight:bold; margin-right: 80px;">● ${s.online?"Activa":"Inactiva"}</span>
+                    <span class="${s.online?"positive":"negative"}" style="font-weight:bold;">● ${s.online?"Activa":"Inactiva"}</span>
                     </div>
                      <button class="btn" style="padding:5px 10px; background:var(--info); color:white;" onclick="editarSucursal('${s.id}')"><i class="fas fa-edit"></i></button>
                     <button class="btn" style="padding:5px 10px; background:var(--warning); color:white;" onclick="eliminarSucursal('${s.id}')"><i class="fas fa-trash"></i></button>

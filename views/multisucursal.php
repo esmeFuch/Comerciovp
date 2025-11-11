@@ -69,6 +69,12 @@ $current_page = "multisucursal";
         <div class="modules-grid" id="modulesGrid">
             <!-- Aquí se van a cargar las sucursales desde JS -->
         </div>
+    <div>
+        <button id="btnNuevaTransferencia" class="btn btn-primary">
+            <i class="fas fa-exchange-alt"></i> Nueva Transferencia
+        </button>
+    </div>
+
 
            <!-- Tabla de Transferencias -->
             <div class="table-container" style="margin-top: 30px;">
@@ -129,9 +135,45 @@ $current_page = "multisucursal";
     </div>
 </div>
 
+<!-- Modal Nueva Transferencia -->
+<div id="modalNuevaTransferencia" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" id="cerrarNuevoTransferenciaModal">&times;</span>
+        <h3>Nueva Transferencia</h3>
+        <form id="formNuevaTransferencia">
+            <label>Producto</label>
+            <input type="text" id="producto" required>
+            <label>Desde</label>
+            <select id="desde" required></select>
+            <label>Hacia</label>
+            <select id="hacia" required></select>
+            <label>Cantidad</label>
+            <input type="number" id="cantidad" required>
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal Detalles de Transferencia -->
+<div id="detallesTransferenciaModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <!-- <span class="close" id="cerrarDetallesTransferenciaModal">&times;</span> -->
+        <h3>Detalles de la Transferencia</h3>
+            <p><strong>ID:</strong> <span id="det-id"></span></p>
+            <p><strong>Producto:</strong> <span id="det-producto"></span></p>
+            <p><strong>Desde:</strong> <span id="det-desde"></span></p>
+            <p><strong>Hacia:</strong> <span id="det-hacia"></span></p>
+            <p><strong>Cantidad:</strong> <span id="det-cantidad"></span></p>
+            <p><strong>Fecha:</strong> <span id="det-fecha"></span></p>
+            <p><strong>Estado:</strong> <span id="det-estado"></span></p>
+            <button id="btnCerrarDetalles" class="btn btn-secondary">Cerrar</button>
+    </div>
+</div>
+
+
 <script src="../assets/js/main.js"></script>
 <script src="../assets/js/multisucursal.js"></script>
-<!-- <script src="../assets/js/transferencias.js"></script> -->
+<script src="../assets/js/transferencias.js"></script>
 
 </body>
 </html>
