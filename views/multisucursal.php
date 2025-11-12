@@ -157,7 +157,7 @@ $current_page = "multisucursal";
 <!-- Modal Detalles de Transferencia -->
 <div id="detallesTransferenciaModal" class="modal" style="display:none;">
     <div class="modal-content">
-        <!-- <span class="close" id="cerrarDetallesTransferenciaModal">&times;</span> -->
+        <span class="close" id="cerrarDetallesTransferenciaModal">&times;</span>
         <h3>Detalles de la Transferencia</h3>
             <p><strong>ID:</strong> <span id="det-id"></span></p>
             <p><strong>Producto:</strong> <span id="det-producto"></span></p>
@@ -166,14 +166,13 @@ $current_page = "multisucursal";
             <p><strong>Cantidad:</strong> <span id="det-cantidad"></span></p>
             <p><strong>Fecha:</strong> <span id="det-fecha"></span></p>
             <p><strong>Estado:</strong> <span id="det-estado"></span></p>
-            <button id="btnCerrarDetalles" class="btn btn-secondary">Cerrar</button>
     </div>
 </div>
 
 
 <script src="../assets/js/main.js"></script>
 <script src="../assets/js/multisucursal.js"></script>
-<script src="../assets/js/transferencias.js"></script>
+<script src="../assets/js/transferencias.js" defer></script>
 
 </body>
 </html>

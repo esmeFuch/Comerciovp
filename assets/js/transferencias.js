@@ -1,45 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
     cargarTransferencias();
-    cargarSucursales();
-
-    const modalNuevo = document.getElementById('modalNuevaTransferencia');
-    const btnAbrirNuevo = document.getElementById('btnNuevaTransferencia');
-    const btnCerrarNuevo = document.getElementById('cerrarNuevoTransferenciaModal');
-    const formNueva = document.getElementById('formNuevaTransferencia');
-
-    const modalDetalles = document.getElementById('detallesTransferenciaModal');
-    const btnCerrarDetalles = document.getElementById('btnCerrarDetalles');
-
-    btnAbrirNuevo.onclick = () => modalNuevo.style.display = 'flex';
-    btnCerrarNuevo.onclick = () => modalNuevo.style.display = 'none';
-    btnCerrarDetalles.onclick = () => modalDetalles.style.display = 'none';
-
-    window.onclick = (e) => {
-        if (e.target == modalNuevo) modalNuevo.style.display = 'none';
-        if (e.target == modalDetalles) modalDetalles.style.display = 'none';
-    };
-
-    formNueva.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const producto = document.getElementById('producto').value;
-        const desde = document.getElementById('desde').value;
-        const hacia = document.getElementById('hacia').value;
-        const cantidad = document.getElementById('cantidad').value;
-
-        try {
-            await fetch('../backend/controllers/transferencias/postTransferencia.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ producto, desde, hacia, cantidad })
-            });
-            modalNuevo.style.display = 'none';
-            formNueva.reset();
-            cargarTransferencias();
-        } catch (err) {
-            console.error('Error al guardar transferencia:', err);
-        }
-    });
 });
+
+async function cargarSucursalesParaTransferencia() {
+    try {
+        const res = await fetch('../backend/data/sucursales.json');
+        const sucursales = await res.json();
+        
+        // Solo actualizar los selects necesarios para transferencias
+        const desdeSelect = document.getElementById('desde');
+        const haciaSelect = document.getElementById('hacia');
+        
+        [desdeSelect, haciaSelect].forEach(select => {
+            select.innerHTML = '';
+            sucursales.forEach(s => {
+                const option = document.createElement('option');
+                option.value = s.nombre;
+                option.textContent = s.nombre;
+                select.appendChild(option);
+            });
+        });
+    } catch (err) {
+        console.error('Error al cargar sucursales:', err);
+    }
+}
 
 // Cargar transferencias desde JSON
 async function cargarTransferencias() {
@@ -49,11 +33,9 @@ async function cargarTransferencias() {
         const res = await fetch('../backend/controllers/transferencias/getTransferencias.php');
         const data = await res.json();
         let pendientes = 0;
-
         data.forEach(t => {
             const estado = t.estado ? t.estado.toLowerCase() : 'pendiente';
             if (estado === 'pendiente') pendientes++;
-
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <td>${t.id}</td>
@@ -74,14 +56,13 @@ async function cargarTransferencias() {
                     ` : `
                         <button class="btn" style="padding:5px 10px; background:var(--info); color:white;" onclick="verDetalles('${t.id}')">
                             <i class="fas fa-eye"></i>
-                        </button>`}
+                        </button>
+                    `}
                 </td>
             `;
             tbody.appendChild(tr);
         });
-
         document.getElementById('transferenciasPendientes').textContent = pendientes;
-
     } catch (err) {
         console.error('Error al cargar transferencias:', err);
         tbody.innerHTML = `<tr><td colspan="8">Error cargando transferencias</td></tr>`;
@@ -91,12 +72,10 @@ async function cargarTransferencias() {
 // Función para ver detalles
 async function verDetalles(id) {
     const modal = document.getElementById('detallesTransferenciaModal');
-
     try {
         const res = await fetch('../backend/controllers/transferencias/getTransferencias.php');
         const data = await res.json();
         const t = data.find(item => item.id === id);
-
         document.getElementById('det-id').textContent = t.id;
         document.getElementById('det-producto').textContent = t.producto;
         document.getElementById('det-desde').textContent = t.desde;
@@ -104,7 +83,6 @@ async function verDetalles(id) {
         document.getElementById('det-cantidad').textContent = t.cantidad;
         document.getElementById('det-fecha').textContent = t.fecha;
         document.getElementById('det-estado').textContent = t.estado || 'Pendiente';
-
         modal.style.display = 'flex';
     } catch (err) {
         console.error('Error al cargar detalles:', err);
@@ -128,33 +106,48 @@ async function actualizarTransferencia(id, estado) {
 function aceptarTransferencia(id) {
     actualizarTransferencia(id, 'Completada');
 }
+
 function rechazarTransferencia(id) {
     actualizarTransferencia(id, 'Rechazada');
 }
 
-// Cargar sucursales en selects
-async function cargarSucursales() {
+// Manejo de formularios y modales
+const modalNuevo = document.getElementById('modalNuevaTransferencia');
+const btnAbrirNuevo = document.getElementById('btnNuevaTransferencia');
+const btnCerrarNuevo = document.getElementById('cerrarNuevoTransferenciaModal');
+const formNueva = document.getElementById('formNuevaTransferencia');
+const modalDetalles = document.getElementById('detallesTransferenciaModal');
+const btnCerrarDetalles = document.getElementById('cerrarDetallesTransferenciaModal');
+
+btnAbrirNuevo.onclick = () => {
+    modalNuevo.style.display = 'flex';
+    cargarSucursalesParaTransferencia();
+};
+
+btnCerrarNuevo.onclick = () => modalNuevo.style.display = 'none';
+btnCerrarDetalles.onclick = () => modalDetalles.style.display = 'none';
+
+window.onclick = (e) => {
+    if (e.target == modalNuevo) modalNuevo.style.display = 'none';
+    if (e.target == modalDetalles) modalDetalles.style.display = 'none';
+};
+
+formNueva.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const producto = document.getElementById('producto').value;
+    const desde = document.getElementById('desde').value;
+    const hacia = document.getElementById('hacia').value;
+    const cantidad = document.getElementById('cantidad').value;
     try {
-        const res = await fetch('../backend/data/sucursales.json');
-        const sucursales = await res.json();
-        const desde = document.getElementById('desde');
-        const hacia = document.getElementById('hacia');
-
-        desde.innerHTML = '';
-        hacia.innerHTML = '';
-
-        sucursales.forEach(s => {
-            const option1 = document.createElement('option');
-            option1.value = s.nombre;
-            option1.textContent = s.nombre;
-            desde.appendChild(option1);
-
-            const option2 = document.createElement('option');
-            option2.value = s.nombre;
-            option2.textContent = s.nombre;
-            hacia.appendChild(option2);
+        await fetch('../backend/controllers/transferencias/postTransferencia.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ producto, desde, hacia, cantidad })
         });
+        modalNuevo.style.display = 'none';
+        formNueva.reset();
+        cargarTransferencias();
     } catch (err) {
-        console.error('Error al cargar sucursales:', err);
+        console.error('Error al guardar transferencia:', err);
     }
-}
+});
