@@ -69,12 +69,12 @@ $current_page = "multisucursal";
         <div class="modules-grid" id="modulesGrid">
             <!-- Aquí se van a cargar las sucursales desde JS -->
         </div>
-    <div>
-        <button id="btnNuevaTransferencia" class="btn btn-primary">
-            <i class="fas fa-exchange-alt"></i> Nueva Transferencia
-        </button>
-    </div>
 
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <button id="btnNuevaTransferencia" class="btn btn-primary">
+                <i class="fas fa-exchange-alt"></i> Nueva Transferencia
+            </button>
+        </div>
 
            <!-- Tabla de Transferencias -->
             <div class="table-container" style="margin-top: 30px;">
