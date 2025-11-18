@@ -11,7 +11,7 @@
         "id": "690b7003c1db75.22341768",
         "nombre": "Sucursal Sur",
         "direccion": "Av. Principal #123, Zona Centro",
-        "telefono": "2222222222",
+        "telefono": "555-0102",
         "online": true,
         "ventasHoy": 5434
     },
@@ -19,8 +19,24 @@
         "id": "690b704d0d6703.08663026",
         "nombre": "Sucursal Norte",
         "direccion": "Calle Norte #456, Sector Norte",
-        "telefono": "555-0101",
+        "telefono": "555-0103",
         "online": true,
         "ventasHoy": 64848
+    },
+    {
+        "id": "691c91f545cc12.89550630",
+        "nombre": "Sucursal Este",
+        "direccion": "Calle Este #321, Zona Este",
+        "telefono": "555-0104",
+        "online": true,
+        "ventasHoy": 18547
+    },
+    {
+        "id": "691c9227c63633.86163119",
+        "nombre": "Sucursal Centro",
+        "direccion": "Av. Principal #123, Zona Centro",
+        "telefono": "555-0105",
+        "online": true,
+        "ventasHoy": 897974
     }
 ]

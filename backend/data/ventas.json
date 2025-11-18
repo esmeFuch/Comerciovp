@@ -230,5 +230,13 @@
         "precio": 49.99,
         "metodo_pago": "efectivo",
         "fecha": "2025-11-03 15:19:53"
+    },
+    {
+        "codigo": "123456784",
+        "producto": "Naranja",
+        "cantidad": 1,
+        "precio": 500,
+        "metodo_pago": "efectivo",
+        "fecha": "2025-11-18 16:32:58"
     }
 ]

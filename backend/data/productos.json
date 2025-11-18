@@ -37,7 +37,7 @@
         "nombre": "Naranja",
         "categoria": "Fruta",
         "precio": 500,
-        "stock": 584
+        "stock": 583
     },
     {
         "id": "7",
@@ -60,15 +60,15 @@
         "codigo": "123456787",
         "nombre": "Zapallo",
         "categoria": "Verdura",
-        "precio": 0.04,
-        "stock": 2
+        "precio": 54,
+        "stock": 21
     },
     {
         "id": "10",
         "codigo": "123456788",
-        "nombre": "Zapallo",
-        "categoria": "Belleza",
+        "nombre": "Zanahoria",
+        "categoria": "Verdura",
         "precio": 50,
-        "stock": 1
+        "stock": 16
     }
 ]

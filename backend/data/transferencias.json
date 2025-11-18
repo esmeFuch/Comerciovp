@@ -34,5 +34,13 @@
         "cantidad": 50,
         "fecha": "2025-11-10",
         "estado": "Completada"
+    },
+    {
+        "producto": "Shampoo",
+        "desde": "Sucursal Oeste",
+        "hacia": "Sucursal Centro",
+        "cantidad": "34",
+        "id": "TRF-691c923b2f7a6",
+        "fecha": "18-11-2025"
     }
 ]
